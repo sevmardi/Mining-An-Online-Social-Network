@@ -44,11 +44,11 @@ class Assignment1(FileOpener):
         :return: object
         """
         dg = nx.DiGraph()
-        # med = self.opener(dg, medium)
-        lag = self.opener(dg, large)
+        med = self.opener(dg, medium)
+        # lag = self.opener(dg, large)
         return {
-            # "medium": nx.number_of_nodes(med),
-            "large": nx.number_of_nodes(lag)
+            "medium": nx.number_of_nodes(med),
+            # "large": nx.number_of_nodes(lag)
         }
 
     def question2_3(self, medium, large):
@@ -61,13 +61,10 @@ class Assignment1(FileOpener):
         dg = nx.DiGraph()
         med = self.opener(dg, medium)
         # lg = self.opener(dg, large)
-        in_degree = med.out_degree().values()
-        # print(in_degree)
-        plt.hist(list(in_degree))
+        in_degree = med.in_degree().values()
+        out_degree = med.out_degree().values()
 
-        # bin = np.bincount(np.array(in_degree))
-        # print(bin)
-        # nx.draw(in_degree)
+        plt.hist(list(in_degree))
         plt.show()
 
     def question2_4(self, medium, large):
@@ -105,8 +102,11 @@ class Assignment1(FileOpener):
         dg = nx.DiGraph()
         med = self.opener(dg, medium)
 
-        s = nx.single_source_shortest_path_length(dg, nx.number_of_nodes((nx.weakly_connected_component_subgraphs(med))))
-        return s
+        s = nx.single_source_shortest_path_length(dg, 0)
+        print(s)
+        # plt.hist(list(s))
+        # plt.show()
+
 
     def question2_6(self, medium, large):
         return None
@@ -123,6 +123,6 @@ if __name__ == '__main__':
     medi = data.load_medium()
     lage = data.load_large()
 
-    o = p.question2_5(medi, lage)
+    o = p.question2_2(medi, lage)
     print(o)
     # print(o["large"])
