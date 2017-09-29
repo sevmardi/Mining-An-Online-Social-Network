@@ -94,7 +94,7 @@ class Assignment1(FileOpener):
         """
         dg = Graph()
         med = self.opener(dg, medium)
-        lg = self.opener(dg, large)
+        # lg = self.opener(dg, large)
 
         l = graph_tool.topology.label_largest_component(lg)
         u = graph_tool.topology.GraphView(lg, vfilt=l)
@@ -147,6 +147,9 @@ class Assignment1(FileOpener):
 
     def dump(self, picle, file_name):
         cPickle.dump(picle, open(file_name, 'wb'))
+
+
+
 
 
 if __name__ == '__main__':
