@@ -79,16 +79,19 @@ class Assignment1(FileOpener):
         # lg = self.opener(dg, large)
 
         return {
-            # "medium": nx.number_strongly_connected_components(med),
+            "medium": nx.number_strongly_connected_components(med),
             # "large": nx.number_strongly_connected_components(lg),
 
+            # both work
             # "medium_weakly": nx.number_weakly_connected_components(med),
             # "large_weakly": nx.number_weakly_connected_components(lg),
 
+            # both work
             # "How many nodes are in the largest strongly connected component? ": nx.number_of_nodes(max(nx.strongly_connected_component_subgraphs(med), key=len)),
             # "How many nodes are in the largest strongly connected component? ": nx.number_of_nodes(max(nx.strongly_connected_component_subgraphs(lg), key=len)),
 
-            "How many edges are in the largest strongly connected component?": nx.number_of_edges(max(nx.strongly_connected_component_subgraphs(med), key=len)),
+            #both work
+            # "How many edges are in the largest strongly connected component?": nx.number_of_edges(max(nx.strongly_connected_component_subgraphs(med), key=len)),
             # "How many edges are in the largest strongly connected component?": str(nx.number_of_edges(max(nx.strongly_connected_component_subgraphs(lg), key=len)))
         }
 
@@ -101,9 +104,11 @@ class Assignment1(FileOpener):
         """
         dg = nx.DiGraph()
         med = self.opener(dg, medium)
-
-        s = nx.single_source_shortest_path_length(dg, 0)
-        print(s)
+        s = nx.weakly_connected_component_subgraphs(med)
+        for i in s:
+            print(i)
+        # s = nx.single_source_shortest_path_length(dg, nx.weakly_connected_component_subgraphs(med))
+        # print(nx.weakly_connected_component_subgraphs(med))
         # plt.hist(list(s))
         # plt.show()
 
@@ -123,6 +128,6 @@ if __name__ == '__main__':
     medi = data.load_medium()
     lage = data.load_large()
 
-    o = p.question2_2(medi, lage)
+    o = p.question2_5(medi, lage)
     print(o)
     # print(o["large"])
