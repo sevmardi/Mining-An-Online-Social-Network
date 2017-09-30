@@ -2,7 +2,7 @@ import networkx as nx
 import helpers.DataLoader as dataLoader
 
 
-class Question2_1:
+class Question2_2:
     def main(self):
 
         # Load the data
@@ -15,9 +15,9 @@ class Question2_1:
         lg = self.opener(large)
 
         # Print the results
-        print("Q2.1 How many Directed edges does this network have?")
-        print("Medium Network: " + str(nx.number_of_edges(med)))
-        print("Large Network: " + str(nx.number_of_edges(lg)))
+        print("Q2.1 How many nodes does this network have?")
+        print("Medium Network: " + str(nx.number_of_nodes(med)))
+        print("Large Network: " + str(nx.number_of_nodes(lg)))
 
     def opener(self, data):
         dg = nx.DiGraph()
@@ -29,13 +29,6 @@ class Question2_1:
                 dg.add_edge(vec[0], vec[1])
         return dg
 
-
 if __name__ == '__main__':
-    p = Question2_1()
+    p = Question2_2()
     p.main()
-
-
-
-
-
-

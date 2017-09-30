@@ -20,70 +20,6 @@ class FileOpener:
 
 class Assignment1(FileOpener):
 
-    def question2_2(self, medium, large):
-        """
-        Count number of nodes does the given network has
-        :param medium:
-        :param large:
-        :return: object
-        """
-        dg = nx.DiGraph()
-        med = self.opener(dg, medium)
-        # lag = self.opener(dg, large)
-        return {
-            "medium": nx.number_of_nodes(med),
-            # "large": nx.number_of_nodes(lag)
-        }
-
-    def question2_3(self, medium, large):
-        """
-        Caclulate the indegree and outdegree distribution of the given graph
-        :param medium:
-        :param large:
-        :return: object
-        """
-        dg = nx.DiGraph()
-        med = self.opener(dg, medium)
-        # lg = self.opener(dg, large)
-
-        in_degree = med.in_degree().values()
-
-        out_degree = med.out_degree().values()
-
-        o = list(out_degree)
-        plt.hist(o)
-        plt.title("Out Degree Distribution Medium Network")
-        plt.xlabel("Out degrees")
-        plt.ylabel("frequency")
-        plt.show()
-
-    def question2_4(self, medium, large):
-        """
-        Calcaulte the nodes and edges of the strongly connected components
-        :param medium:
-        :param large:
-        :return:
-        """
-        dg = nx.DiGraph()
-        med = self.opener(dg, medium)
-        # lg = self.opener(dg, large)
-
-        return {
-            "medium": nx.number_strongly_connected_components(med),
-            # "large": nx.number_strongly_connected_components(lg),
-
-            # both work
-            # "medium_weakly": nx.number_weakly_connected_components(med),
-            # "large_weakly": nx.number_weakly_connected_components(lg),
-
-            # both work
-            # "How many nodes are in the largest strongly connected component? ": nx.number_of_nodes(max(nx.strongly_connected_component_subgraphs(med), key=len)),
-            # "How many nodes are in the largest strongly connected component? ": nx.number_of_nodes(max(nx.strongly_connected_component_subgraphs(lg), key=len)),
-
-            # both work
-            # "How many edges are in the largest strongly connected component?": nx.number_of_edges(max(nx.strongly_connected_component_subgraphs(med), key=len)),
-            # "How many edges are in the largest strongly connected component?": str(nx.number_of_edges(max(nx.strongly_connected_component_subgraphs(lg), key=len)))
-        }
 
     def question2_5(self, medium, large):
         """
@@ -159,6 +95,6 @@ if __name__ == '__main__':
     medi = data.load_medium()
     lage = data.load_large()
 
-    o = p.question2_3(medi, lage)
-    # print(o)
+    o = p.question2_2(medi, lage)
+    print(o)
     # print(o["large"])
