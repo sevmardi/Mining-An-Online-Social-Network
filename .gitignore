@@ -5,7 +5,8 @@ __pycache__/
 .idea
 # C extensions
 *.so
-/Assignment2/data
+/Assignment2/Exercise3/data
+/Assignment2/Exercise3/csv
 # Distribution / packaging
 .Python
 env/
