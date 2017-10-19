@@ -53,7 +53,7 @@ def parse_file_to_digraph(filename):
 
 # TODO
 
-
+#TODO
 def parse_file_to_gtdigraph(filename):
 
     pass
