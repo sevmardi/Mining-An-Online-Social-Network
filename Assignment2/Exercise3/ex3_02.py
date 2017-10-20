@@ -8,7 +8,7 @@ from graph_tool.all import *
 sys.setdefaultencoding("UTF-8")
 
 data = 'data/twitter-small.in'
-
+csv_file = "csv/twitter-small.csv"
 
 def number_of_edges(graph, title):
     print('Number of Edges')
@@ -45,6 +45,26 @@ def out_degree_distribution(DiGraph, title, filename):
     print(bin_count)
     print("\n")
 
+def number_of_weakly_connected_components(graph, title):
+    print("Number of weakly connected components")
+    print(titel + ": " + str(nx.number_weakly_connected_components(graph)))
+    print("\n")
+
+def number_of_strongly_connected_components(graph, title):
+    print('Number of weakly connected components')
+    print(titel + ": " + str(nx.number_strongly_connected_components(graph)))
+
+
+
+def get_largest_component(graph, titel, filename):
+    number_of_edges(graph, titel)
+    number_of_nodes(graph, titel)
+    network_density(graph, title)
+    in_degree_distribution(graph, title, filename)
+    out_degree_distribution(graph, titel, filename)
+
+    #Save the largest file
+    nx.write_weighted_edgelist(graph, filename, delimiter=",")
 
 
 # TODO
@@ -53,10 +73,10 @@ def parse_file_to_digraph(filename):
 
 # TODO
 
-#TODO
 def parse_file_to_gtdigraph(filename):
 
-    pass
+    dg = nx.DiGraph()
+
 
 
 def dump(picle, filename):
@@ -65,4 +85,7 @@ def dump(picle, filename):
 
 # TODO
 def main():
-    pass
+    number_of_edges()
+
+if __name__ == '__main__':
+    main()

@@ -61,6 +61,9 @@ def create_edge_list(adjust_list, filename):
         csv_out.writerow(['Source', 'Target', 'Weight', 'Timestamp'])
         for row in edge_list:
             csv_out.writerow(row)
+# TODO
+def create_graph_edge_list():
+    pass
 
 
 if __name__ == '__main__':
