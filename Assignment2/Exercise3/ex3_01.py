@@ -24,7 +24,8 @@ def create_adjacency_list(file):
             line = line.rstrip('\n')
             tweet = line.split("\t")
 
-            timestamp = int(datetime.strptime(tweet[0], "%Y-%m-%d %H:%M:%S").strftime("%s"))
+            timestamp = int(datetime.strptime(
+                tweet[0], "%Y-%m-%d %H:%M:%S").strftime("%s"))
             username = tweet[1]
             usrs = p.parse(tweet[2], html=False).users
 
@@ -40,8 +41,10 @@ def create_adjacency_list(file):
                         adj_list[username][i]['timestamps'] += [timestamp]
 
                     adj_list[username][i]['timestamps'].sort()
-                    adj_list[username][i]['first_mention'] = adj_list[username][i]['timestamps'][0]
-                    adj_list[username][i]['number_of_mentions'] = len(adj_list[username][i]['timestamps'])
+                    adj_list[username][i]['first_mention'] = adj_list[
+                        username][i]['timestamps'][0]
+                    adj_list[username][i]['number_of_mentions'] = len(
+                        adj_list[username][i]['timestamps'])
 
     return adj_list
 
@@ -62,6 +65,8 @@ def create_edge_list(adjust_list, filename):
         for row in edge_list:
             csv_out.writerow(row)
 # TODO
+
+
 def create_graph_edge_list():
     pass
 
